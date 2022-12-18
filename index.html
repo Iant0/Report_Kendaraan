@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+  <base target="_top">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+ 
+<style>
+ 
+   body{
+     background: #eee;
+   }
+
+   .frame{
+      box-shadow: 10px 10px 15px rgb(193,182,182), -6px -6px 15px #eee;
+      padding: 20px;
+      max-width: 480px;
+      margin: 40px auto;
+      margin-top: 10px;
+      border-radius: 7px;
+      background: white;
+   }
+
+    button {
+      text-transform: uppercase;
+      transition: transform 80ms ease-in;
+      border-radius: 7px;
+    }
+    
+    button:active {
+        transform: scale(0.95);
+        color: white
+    }
+    
+    .btn.focus, .btn:focus {
+        outline: 0;
+        box-shadow: none!important;
+        color: white;
+    }
+
+    .btn-info:hover {
+      background-color: gold;
+      color: white;
+      border-color: gold;      
+    }
+ 
+    .btn-info {color: white;}
+
+    .boxTitle {
+        border: 1px solid rgba(0,0,0,0.2);
+        border-radius: 40px 0px 40px 0px;
+        padding: 1.5rem;
+        margin-left:10px;
+        margin-right:10px;
+        /* border-radius: 13px;         */
+        margin: auto;
+        width: 100%;
+    }
+
+    .box {
+        border: 1px solid rgba(0,0,0,0.2);
+        padding: 1.5rem;
+        margin-left:10px;
+        margin-right:10px;
+        border-radius: 13px;        
+        margin: auto;
+        width: 100%;
+    }
+
+    .inp {
+        border:none;
+        border-bottom: 1px solid rgba(0,0,0,0.2);
+        border-radius: 0px;
+        padding: 5px 10px;
+        outline: none;
+    }
+
+    [placeholder]:focus::-webkit-input-placeholder {
+        transition: text-indent 0.4s 0.4s ease; 
+        text-indent: -100%;
+        opacity: 1;
+    }
+
+     .inp.focus, .inp:focus {
+        outline: 0;
+        box-shadow: none!important;
+        /* color: green; */
+        border-bottom: 1px solid rgba(0,0,0,0.2);
+    }
+ 
+</style>  
+ 
+</head>
+ 
+<body>
+ 
+ <div class="container">
+  <div class="row frame">
+   
+    <div class="text-center mb-4 boxTitle" style="color: white; background-color: #17A2B8"><h3>Cheklist Kendaraan</h3></div>
+
+<!-- create form element here -->
+    
+    <div class="form-group mb-4 box">
+        <select class="custom-select mr-sm-2" id="input1" name="nama">
+           <option value="-" selected>Pilih Nama Petugas</option>
+           <option value="Sunardi">Sunardi</option>
+           <option value="Jiwan">Jiwan</option>
+           <option value="Siswanto">Siswanto</option>
+        </select>
+    </div>
+    <div class="form-group mb-4 box">
+        <div class="mb-3">
+            <label class="mr-sm-1" for="inlineFormCustomSelect">Jenis Kendaraan</label>
+                <select class="custom-select mr-sm-2" id="input2" name="jenis kendaraan">
+                    <option value="-" selected>Pilih Jenis Kendaraan</option>
+                    <option value="DOUBLE CABIN PAN KH 8527 GP">DOUBLE CABIN PAN KH 8527 GP</option>
+                    <option value="HILUK SC KH 8490 GP">HILUK SC KH 8490 GP</option>
+                    <option value="INOVA KH 1558 GK">INOVA KH 1558 GK</option>
+                    <option value="INNOVA KH 1174 G">INNOVA KH 1174 G</option>
+                    <option value="HIACE KH 7001 G">HIACE KH 7001 G</option>
+                    <option value="AVANZA NEW KH 1065 GR">AVANZA NEW KH 1065 GR</option>
+                    <option value="AVANZA TRAC KH 1295 TR">AVANZA TRAC KH 1295 TR</option>
+                    <option value="DC SAP KH 8955 GL">DC SAP KH 8955 GL</option>
+                </select>
+        </div>
+    </div>
+    <div class="form-group mb-4 box">
+        <div class="mb-3">
+            <label for="">KM Kendaraan Pagi</label>
+                <input type="text" class="form-control" id ="input3" placeholder="KM Kendaraan Pagi" name="km pagi">
+        </div>
+    </div>
+    <div class="form-group mb-4 box">
+      <div class="mb-3" id="myForm">
+        <label for="myFile" class="form-label">Upload Foto KM Pagi</label>
+        <input class="form-control-file" type="file" id="myFile" name="myFile">
+      </div>
+
+    <center>
+       <div>
+         <p>
+           <img class="form-control-file mt-4" style="max-width: 300px; margin: 40px auto; display: none; border: 0px solid #555;" src="" id="img" alt="from phone">
+         </p>
+       </div>  
+      </center>  
+    </div>
+
+<div class="form-group mb-4 box">
+            <div class="mb-3">
+                <label for="">Oli Mesin</label>
+                <select class ="custom-select mr-sm-2" name="Oli Mesin" id="input4">
+                    <option value="-" selected>Pilih Kondisi Aktual</option>
+                    <option value="Penuh">Penuh</option>
+                    <option value="Setengah">Setengah</option>
+                    <option value="Kurang dari Setengah">Kurang dari Setengah</option>
+                </select>
+            </div>
+        </div>
+                <div class="form-group mb-4 box">
+            <div class="mb-3" id="myForm2">
+            <label for="myFile2" class="form-label">Upload Oli Mesin</label>
+            <input type="file" class="form-control-file" id="myFile2" name="myFile2">
+        </div>
+
+ <center>
+       <div>
+         <p>
+           <img class="form-control-file mt-4" style="max-width: 300px; margin: 40px auto; display: none; border: 0px solid #555;" 
+           src="" id="img2" alt="from phone">
+         </p>
+       </div>  
+      </center>  
+</div>
+ <div class="form-group mb-4 box">
+            <label for="">Oli Rem</label>
+            <select class="custom-select mr-sm-2" id="input5" name="oli rem">
+                <option value="-" selected>Pilih Kondisi Aktual</option>
+                <option value="Penuh">Penuh</option>
+                <option value="Setengah">Setengah</option>
+                <option value="Kurang dari Setengah">Kurang dari Setengah</option>
+            </select>
+        </div>
+
+ <div class="form-group mb-4 box">
+            <label for="">Oli Power Steering</label>
+            <select class="custom-select mr-sm-2" id="input6">
+                <option value="-" selected>Pilih Kondisi Aktual</option>
+                <option value="Penuh">Penuh</option>
+                <option value="Setengah">Setengah</option></select>
+        </div>
+        
+<div class="form-group mb-4 box">
+            <label for="">Air Radiator</label>
+            <select class="custom-select mr-sm-2" id="input7" name="air radiator">
+                    <option value="-" selected>Pilih Kondisi Aktual</option>
+                    <option value="Penuh">Penuh</option>
+                    <option value="Setengah">Setengah</option>
+                    <option value="Kurang dari Setengah">Kurang dari Setengah</option>
+            </select>
+        </div>
+        <div class="form-group mb-4 box">
+            <div class="mb-3" id="myForm3">
+            <label for="myFile3" class="form-label">Upload Air Radiator</label>
+            <input type="file" class="form-control-file" id="myFile3" name="myFile3">
+        </div>
+         <center>
+       <div>
+         <p>
+           <img class="form-control-file mt-4" style="max-width: 300px; margin: 40px auto; display: none; border: 0px solid #555;" 
+           src="" id="img3" alt="from phone">
+         </p>
+       </div>  
+      </center>  
+</div>
+        <div class="form-group mb-4 box">
+            <label for="">Air Eccu/Battarai</label>
+            <select class="custom-select mr-sm-2" id="input8" name="air eccu">
+                <option value="-" selected>Pilih Kondisi Aktual</option>
+                <option value="Tiap Sel Penuh">Tiap Sel Penuh</option>
+                <option value="Tidak Penuh">Tidak Penuh</option>
+            </select>
+        </div>
+
+<div class="form-group mb-4 box">
+            <label for="">BBM Pagi</label>
+            <select class="custom-select mr-sm-2" id="input9" name="bbm pagi">
+                <option value="-" selected>Pilih Kondisi Aktual</option>
+                <option value="Full">Full</option>
+                <option value="3/4+">3/4+</option>
+                <option value="3/4">3/4</option>
+                <option value="3/4-">3/4-</option>
+                <option value="1/2+">1/2+</option>
+                <option value="1/2">1/2</option>
+                <option value="1/2-">1/2-</option>
+                <option value="1/4+">1/4+</option>
+                <option value="1/4">1/4</option>
+                <option value="1/4-">1/4-</option>
+                <option value="E/Empyt">E/Empyt</option>
+            </select>
+        </div>
+
+   <div class="form-group mb-4 box">
+            <label for="">Kondisi Stater</label>
+            <select class="custom-select mr-sm-2" id="input10" name="kondisi stater">
+                <option value="-" selected>Pilih Kondisi Aktual</option>
+                <option value="Normal">Normal</option>
+                <option value="Tidak Normal">Tidak Normal</option>
+            </select>
+        </div>
+        <div class="form-group mb-4 box">
+            <label for="">Kaca Mobil</label>
+            <select class="custom-select mr-sm-2" id="input11" name="kaca dan lampu">
+                <option value="-" selected>Pilih Kondisi Aktual</option>
+                <option value="Berfungsi/Tidak Mati">Berfungsi/Tidak Mati</option>
+                <option value="Tidak Sesuai Strandart">Tidak Sesuai Strandart</option>
+                <option value="Retak/Pecah">Retak/Pecah</option>
+                <option value="Tidak Pecah/Normal">Tidak Pecah/Normal</option>
+            </select>
+        </div>
+
+<div class="form-group mb-4 box">
+            <label for="">Klakson</label>
+            <select class="custom-select mr-sm-2" id="input12" name="klakson">
+                <option value="-" selected>Pilih Kondisi Aktual</option>
+                <option value="Ada dan Berfungsi">Ada dan Berfungsi</option>
+                <option value="Tidak Berfungsi">Tidak Berfungsi</option>
+            </select>
+        </div>
+        <div class="form-group mb-4 box">
+            <label for="">Lampu Sein L/R</label>
+            <select class="custom-select mr-sm-2" id="input13" name="lampu sein R/L">
+                <option value="-" selected>Pilih Kondisi Aktual</option>
+                <option value="Berfungsi/Normal">Berfungsi/Normal</option>
+                <option value="Tidak Sesuai Standart">Tidak Sesuai Standart</option>
+                <option value="Retak/Pecah">Retak/Pecah</option>
+                <option value="Tidak Retak">Tidak Retak</option>
+            </select>
+        </div>
+
+<div class="form-group mb-4 box">
+            <label for="">AC</label>
+            <select class="custom-select mr-sm-2" id="input14" name="ac">
+                <option value="-" selected>Pilih Kondisi Aktual</option>
+                <option value="Dingin">Dingin</option>
+                <option value="Perlu Tambah Freon">Perlu Tambah Freon</option>
+                <option value="Tidak Berfungsi">Tidak Berfungsi</option>
+            </select>
+        </div>
+        <div class="form-group mb-4 box">
+            <label for="">Kondisi Air Swiper</label>
+            <select class="custom-select mr-sm-2" id="input15" name="body luar dalam">
+                <option value="-" selected>Pilih Kondisi Aktual</option>
+                <option value="Penuh">Penuh</option>
+                <option value="Setengah">Setengah</option>
+                <option value="Tidak Penuh">Tidak Penuh</option>
+            </select>
+        </div>
+        <div class="form-group mb-4 box">
+            <label for="">Body Luar/Dalam</label>
+            <select class="custom-select mr-sm-2" id="input16" name="body luar dalam">
+                <option value="-" selected>Pilih Kondisi Aktual</option>
+                <option value="Bersih">Bersih</option>
+                <option value="Kotor, Perlu di Cuci">Kotor, Perlu di Cuci</option>
+            </select>
+        </div>
+        <div class="form-group mb-4 box">
+            <label for="">Kondisi Body Mobil</label>
+            <select class="custom-select mr-sm-2" id="input17" name="body luar dalam">
+                <option value="-" selected>Pilih Kondisi Aktual</option>
+                <option value="Baik - Baik Saja">Baik - Baik Saja</option>
+                <option value="Ada Baret/Penyok">Ada Baret/Penyok</option>
+                <option value="Cat Terkelupas">Cat Terkelupas</option>
+            </select>
+        </div>
+        <div class="form-group mb-4 box">
+            <div class="mb-3" id="myForm4">
+            <label for="myFile4" class="form-label">Upload Kondisi Body Mobil</label>
+            <input type="file" class="form-control-file" id="myFile4" name="myFile4">
+        </div>
+         <center>
+       <div>
+         <p>
+           <img class="form-control-file mt-4" style="max-width: 300px; margin: 40px auto; display: none; border: 0px solid #555;" 
+           src="" id="img4" alt="from phone">
+         </p>
+       </div>  
+      </center>  
+</div>
+<div class="form-group mb-4 box">
+            <label for="">STNK</label>
+            <select class="custom-select mr-sm-2" id="input18" name="stnk">
+                <option value="-" selected>Pilih Kondisi Aktual</option>
+                <option value="Ada, Hidup">Ada, Hidup</option>
+                <option value="Ada, Perlu Segera di Update">Ada, Perlu Segera di Update</option>
+                <option value="Ada, Sudah Tidak Update">Ada, Sudah Tidak Update</option>
+                <option value="Tidak Ada">Tidak Ada</option>
+            </select>
+        </div>
+
+<div class="form-group mb-4 box">
+            <label for="">Buku KIR</label>
+            <select class="custom-select mr-sm-2" id="input19" name="kir">
+                <option value="-" selected>Pilih Kondisi Aktual</option>
+                <option value="Ada">Ada</option>
+                <option value="Tidak Ada">Tidak Ada</option>
+            </select>
+        </div>
+
+      <div class="form-group mb-4 box">
+            <label for="">Kunci Ban</label>
+            <select class="custom-select mr-sm-2" id="input20" name="kunci ban">
+                <option value="-" selected>Pilih Kondisi Aktual</option>
+                <option value="Ada">Ada</option>
+                <option value="Tidak Ada">Tidak Ada</option>
+            </select>
+        </div>
+
+      <div class="form-group mb-4 box">
+            <label for="">Dongkrak Ban</label>
+            <select class="custom-select mr-sm-2" id="input21" name="dongkrak ban">
+                <option value="-" selected>Pilih Kondisi Aktual</option>
+                <option value="Ada, Berfungsi">Ada, Berfungsi</option>
+                <option value="Ada, Tidak Berfungsi">Ada, Tidak Berfungsi</option>
+                <option value="Tidak Ada">Tidak Ada</option>
+            </select>
+        </div>
+      <div class="form-group mb-4 box">
+            <label for="">Kondisi Ban</label>
+            <select class="custom-select mr-sm-2" id="input22" name="kondisi ban">
+                    <option value="-" selected>Pilih Kondisi Aktual</option>
+                    <option value="Baik">Baik</option>
+                    <option value="Kurang Angin">Kurang Angin</option>
+                    <option value="Tidak Baik">Tidak Baik</option>
+            </select>
+        </div>
+        <div class="form-group mb-4 box">
+            <div class="mb-3" id="myForm5">
+            <label for="myFile5" class="form-label">Upload Kondisi Ban</label>
+            <input type="file" class="form-control-file" id="myFile5" name="myFile5">
+        </div>
+         <center>
+       <div>
+         <p>
+           <img class="form-control-file mt-4" style="max-width: 300px; margin: 40px auto; display: none; border: 0px solid #555;" 
+           src="" id="img5" alt="from phone">
+         </p>
+       </div>  
+      </center>  
+</div>
+      <div class="form-group mb-4 box">
+            <label for="">Ban Serep</label>
+            <select class="custom-select mr-sm-2" id="input23" name="ban serep">
+                <option value="-" selected>Pilih Kondisi Aktual</option>
+                <option value="Ada, Baik">Ada, Baik</option>
+                <option value="Ada, Tidak Baik/layak">Ada, Tidak Baik/layak</option>
+                <option value="Tidak Ada">Tidak Ada</option>
+            </select>
+        </div>
+
+      <div class="form-group mb-4 box">
+            <label for="">APAR</label>
+            <select class="custom-select mr-sm-2" id="input24" name="apar">
+                <option value="-" selected>Pilih Kondisi Aktual</option>
+                <option value="Ada, Berfungsi">Ada, Berfungsi</option>
+                <option value="Ada, Tidak Berfungsi">Ada, Tidak Berfungsi</option>
+                <option value="Tidak Ada">Tidak Ada</option>
+            </select>
+        </div>
+
+      <div class="form-group mb-4 box">
+            <label for="">Sabuk Pengaman</label>
+            <select class="custom-select mr-sm-2" id="input25" name="sabuk pengaman">
+                <option value="-" selected>Pilih Kondisi Aktual</option>
+                <option value="Ada, Berfungsi">Ada, Berfungsi</option>
+                <option value="Ada, Tidak Berfungsi">Ada, Tidak Berfungsi</option>
+            </select>
+        </div>
+
+      <div class="form-group mb-4 box">
+            <label for="">Apakah Data Yang Anda Masukan Sudah Benar</label>
+            <input type="text" id="input26" class="">
+
+    </div>
+            
+ 
+<!-- create form element until here -->
+
+   <div class="col text-center mb-4">
+      <button type="button" id="submitButton" class="btn btn-info">Simpan Data</button>
+   </div>
+ 
+  </div>
+ </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<script>
+
+    let uploadFile ={}
+    $('input[type="file"]').on('change',function(){
+      let files = []
+      for(var i=0; i<$(this)[0].files.length; i++){
+         files.push($(this)[0].files[i])
+      }
+      files.forEach((file,i)=>{
+        let reader = new FileReader()
+        reader.onloadend = (e)=>{
+          uploadFile[$(this).attr('id')+(i+1)]={
+            data:e.target.result.split(',')[1],
+            name:file.name,
+            type:file.type
+          }
+        }
+        reader.readAsDataURL(file)
+       })
+       })  
+ 
+  document.addEventListener('DOMContentLoaded', (ev) =>{
+
+    showFileIcon('myFile','img')
+
+    showFileIcon('myFile2','img2')
+    showFileIcon('myFile3','img3')
+    showFileIcon('myFile4','img4')
+    showFileIcon('myFile5','img5')
+
+
+
+
+  });
+
+  function showFileIcon(fileID, imgID){
+    let input = document.getElementById(fileID);
+    input.addEventListener('change', (ev) =>{
+      console.dir( input.files[0] );
+      let img = document.getElementById(imgID);
+      img.style.display = "block";
+      img.src = input.files[0].type.indexOf("image/") > -1? window.URL.createObjectURL(input.files[0]):
+                input.files[0].type.indexOf("/pdf") > -1? "http://uapminovasi.com/wp-content/uploads/2018/09/pdf-logo-15.jpg":
+                input.files[0].type.indexOf(".sheet") > -1? "https://gadoin.com/wp-content/uploads/2021/05/excel-logo-0.jpg":
+                input.files[0].type.indexOf(".document") > -1?
+                "https://logos-world.net/wp-content/uploads/2020/03/Microsoft-Word-Logo-2013-2019.png":
+                "https://iconape.com/wp-content/png_logo_vector/document.png";
+    })
+  };
+
+
+  document.querySelector(".btn").addEventListener("click", submitData);
+
+  function submitData(){
+    var input1 = document.getElementById("input1");
+    var input2 = document.getElementById("input2");
+    var input3 = document.getElementById("input3");
+    var input4 = document.getElementById("input4");
+    var input5 = document.getElementById("input5");
+    var input6 = document.getElementById("input6");
+    var input7 = document.getElementById("input7");
+    var input8 = document.getElementById("input8");
+    var input9 = document.getElementById("input9");
+    var input10 = document.getElementById("input10");
+    var input11 = document.getElementById("input11");
+    var input12 = document.getElementById("input12");
+    var input13 = document.getElementById("input13");
+    var input14 = document.getElementById("input14");
+    var input15 = document.getElementById("input15");
+    var input16 = document.getElementById("input16");
+    var input17 = document.getElementById("input17");
+    var input18 = document.getElementById("input18");
+    var input19 = document.getElementById("input19");
+    var input20 = document.getElementById("input20");
+    var input21 = document.getElementById("input21");
+    var input22 = document.getElementById("input22");
+    var input23 = document.getElementById("input23");
+    var input24 = document.getElementById("input24");
+    var input25 = document.getElementById("input25");
+    var input26 = document.getElementById("input26");
+
+    let upload = document.getElementById('myFile');
+    let upload2 = document.getElementById('myFile2');
+    let upload3 = document.getElementById('myFile3');
+    let upload4 = document.getElementById('myFile4');
+    let upload5 = document.getElementById('myFile5');
+
+
+
+    let img = document.getElementById('img');
+    let img2 = document.getElementById('img2')
+    let img3 = document.getElementById('img3');
+    let img4 = document.getElementById('img4');
+    let img5 = document.getElementById('img5');
+;
+
+
+
+    let button = document.getElementById('submitButton');
+
+    let obj = {
+      input1: input1.value,
+      input2: input2.value,
+      input3: input3.value,
+      input4: input4.value,
+      input5: input5.value,
+      input6: input6.value,
+      input7: input7.value,
+      input8: input8.value,
+      input9: input9.value,
+      input10: input10.value,
+      input11: input11.value,
+      input12: input12.value,
+      input13: input13.value,
+      input14: input14.value,
+      input15: input15.value,
+      input16: input16.value,
+      input17: input17.value,
+      input18: input18.value,
+      input19: input19.value,
+      input20: input20.value,
+      input21: input21.value,
+      input22: input22.value,
+      input23: input23.value,
+      input24: input24.value,
+      input25: input25.value,
+      input26: input26.value,
+
+      
+      uploadFile: uploadFile
+    }
+    
+    if(input1.value == "" || input2.value == "" || input3.value == "" || upload.value == "" || upload3.value == "" || upload4.value == "" || upload5.value == "" ){
+        Swal.fire({title:"", text:'Please fill all the fields!', icon: 'warning'})
+    }else{
+        button.innerHTML = "Loading...";
+        google.script.run
+        .withSuccessHandler(() => {
+          input1.value = "";
+          input2.value = "";
+          input3.value = "";
+          input4.value = "";
+          input5.value = "";
+          input6.value = "";
+          input7.value = "";
+          input8.value = "";
+          input9.value = "";
+          input10.value = "";
+          input11.value = "";
+          input12.value = "";
+          input13.value = "";
+          input14.value = "";
+          input15.value = "";
+          input16.value = "";
+          input17.value = "";
+          input18.value = "";
+          input19.value = "";
+          input20.value = "";
+          input21.value = "";
+          input22.value = "";
+          input23.value = "";
+          input24.value = "";
+          input25.value = "";
+          input26.value = "";
+
+          upload.value = "";
+          img.src = "";
+          img.style.display = "none";
+
+          upload2.value = "";
+          img2.src = "";
+          img2.style.display = "none";
+
+          upload3.value = "";
+          img3.src = "";
+          img3.style.display = "none";
+
+          upload4.value = "";
+          img4.src = "";
+          img4.style.display = "none";
+
+          upload5.value = "";
+          img5.src = "";
+          img5.style.display = "none";
+
+
+
+
+
+
+          button.innerHTML = "SUBMIT";
+          uploadFile = {};
+          Swal.fire({title:"", text:'Data sent!', icon:'success', timer: 2500, showConfirmButton:false});     
+        })
+        .saveData(obj);      
+    }
+  };
+
+</script>
+ 
+</body>
+ 
+</html>
